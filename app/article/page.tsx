@@ -26,7 +26,7 @@ const ArticlePage = () => {
   // })
 
   // VERSION 2 : HOOKS
-const [articles, setArticles] = useState<ArticleWithTagsAndComments>([])
+const [articles, setArticles] = useState<ArticleWithTagsAndComments[]>([])
 
 useEffect( () => {
   const fetchArticles = async () =>  {
