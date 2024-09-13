@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Tag from '@/components/Tag'
 import { formatDate } from '@/lib/utils'
 import NavBar from '@/components/NavBar'
+import Comment from '@/components/Comment'
 
 const ArticleDetailPage = ({ params }: { params: { articleId: string } }) => {
 
@@ -35,10 +36,11 @@ const ArticleDetailPage = ({ params }: { params: { articleId: string } }) => {
                     <h2 className='text-xl mt-10'>Commentaires <span className='text-xl italic'>({article.comments.length || 0})</span></h2>
                     {article.comments && article?.comments.length > 0 ? (
                         article.comments.map((comment: CommentType) => (
-                            <div className='mt-10 group border border-slate-500 p-6 rounded-md' >
-                                <h2 className='pb-3'>{comment.userId} <span className='text-gray-500 text-sm italic'>publié le {formatDate(comment.createdAt)}</span></h2>
-                                <p>{comment.text}</p>
-                            </div>
+                            // <div key={comment.id} className='mt-10 group border border-slate-500 p-6 rounded-md' >
+                            //     <h2 className='pb-3'>{comment.userId} <span className='text-gray-500 text-sm italic'>publié le {formatDate(comment.createdAt)}</span></h2>
+                            //     <p>{comment.text}</p>
+                            // </div>
+                            <Comment key={comment.id} comment={comment}/>
                         ))
                     ) : (
                         <p>Aucun commentaire.</p>
