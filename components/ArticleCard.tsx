@@ -28,7 +28,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
   }
 
   return (
-    <div className="group border border-slate-500 p-6 rounded-md hover:bg-slate-700 cursor-pointer hover:translate-y-2 duration-300" key={article.id}>
+    <div className="group border border-slate-500 bg-slate-500 p-6 rounded-md hover:bg-slate-700 cursor-pointer hover:translate-y-2 duration-300" key={article.id}>
     {/* Titre de l'article */}
     <h2 className="text-2xl md:text-xl font-bold">{article.title}</h2>
 

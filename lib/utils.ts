@@ -15,7 +15,7 @@ export function formatDate(date: Date): string {
 // import { format } from "date-fns";
 // import { twMerge } from "tailwind-merge";
 
-// export function formatDate(date: Date): string {
+// export function formatDate(date: Date): string {npm i @prisma
 //     return format(new Date(date), "MMMM do, yyyy HH:mm") ?? "Date not available";
 // }
 

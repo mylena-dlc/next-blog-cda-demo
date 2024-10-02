@@ -7,6 +7,18 @@ import { db } from '@/lib/db'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import { EffectCards } from 'swiper/modules';
+
+import 'swiper/css/bundle';
+import 'swiper/css/effect-cards';
+
+import 'swiper/css/navigation'; 
+import 'swiper/css/pagination'; 
+import 'swiper/css/virtual';
+
+
 
 const ArticlePage = () => {
 
@@ -43,14 +55,27 @@ useEffect( () => {
         <NavBar/>
         <h1 className='text-2xl pb-10'>Blog</h1>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+        <div className='mx-[200px]'>
+         
+        <Swiper
+        modules={[EffectCards]}
+        effect={'cards'}
+        grabCursor={true}
+         className='swiper-container'
+         spaceBetween={30}
+         slidesPerView={3}
+         pagination={{ clickable: true }}
+        >
           {/* Liste des articles */}
           {articles.map((article: any) => (
-            <Link key={article.id} href={`/article/${article.id}`}>
-                <ArticleCard article={article}/>
-            </Link>
-            // le premier: nom de la propriété de la fonction, le deuxieme c'est la valeur, ici l'objet Article
-            ))}
+          <SwiperSlide key={article.id}>
+                    <Link key={article.id} href={`/article/${article.id}`}>
+                        <ArticleCard article={article}/>
+                    </Link>
+                  
+        </SwiperSlide>
+            ))}  
+            </Swiper>
         </div>
       </div>
 
